@@ -26,7 +26,7 @@ public class Producer {
     }
 
     public String sendMessage(FoodOrder foodOrder) throws JsonProcessingException {
-        String orderAsMessage = objectMapper.writeValueAsString(foodOrder);
+        String orderAsMessage = objectMapper.writeValueAsString(foodOrder); // преобразовываем модель в json-строку
         kafkaTemplate.send(orderTopic, orderAsMessage);
 
         return "message sent";
